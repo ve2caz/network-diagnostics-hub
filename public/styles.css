@@ -1,0 +1,104 @@
+:root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #f8fafc;
+    --accent-green: #22c55e;
+    --accent-orange: #f97316;
+    --accent-blue: #3b82f6;
+    --accent-purple: #a855f7;
+    --accent-red: #ef4444;
+    --accent-cyan: #06b6d4;
+    --accent-pink: #ec4899;
+    --accent-yellow: #eab308;
+    --accent-teal: #14b8a6;
+}
+
+body {
+    font-family: -apple-system, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 2rem;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 320px);
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 4px solid #fff;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.meta {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 6px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #334155;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.btn {
+    background: var(--text);
+    color: var(--bg);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.source-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.source-link:hover {
+    color: var(--text);
+}
+
+.section {
+    margin-bottom: 0.5rem;
+    flex: 1;
+}

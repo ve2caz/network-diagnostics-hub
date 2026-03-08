@@ -1,0 +1,56 @@
+*** Targets ***
+probe = FPing
+menu = Top
+title = Network Stability Monitor
+
++ Internal
+menu = Local
+title = Home Network
+
+++ Gateway
+menu = Router
+title = Local Router (Hop 1)
+host = 192.168.1.1
+
++ ISP
+menu = ISP
+title = ISP Infrastructure
+
+++ ISP_Gateway
+menu = ISP First Hop
+title = ISP Gateway (Hop 2)
+host = 198.58.198.34 # RUN 'traceroute 8.8.8.8' AND REPLACE THIS WITH HOP 2
+
++ External
+menu = Public
+title = External DNS Services
+
+++ Google
+menu = Google DNS (Tier 1)
+title = Google DNS (8.8.8.8)
+host = 8.8.8.8
+
+++ Cloudflare
+menu = Cloudflare DNS (Tier 1)
+title = Cloudflare DNS (1.1.1.1)
+host = 1.1.1.1
+
+++ OpenDNS
+menu = OpenDNS (Tier 2)
+title = OpenDNS (208.67.222.222)
+host = 208.67.222.222
+
+++ Quad9
+menu = Quad9 DNS (Tier 2)
+title = Quad9 DNS (9.9.9.9)
+host = 9.9.9.9
+
+++ Comodo
+menu = Comodo Secure DNS (Tier 3)
+title = Comodo Secure DNS (8.26.56.26)
+host = 8.26.56.26
+
+++ Level3
+menu = Level3 DNS (Tier 3)
+title = Level3 DNS (209.244.0.3)
+host = 209.244.0.3

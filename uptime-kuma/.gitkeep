@@ -1,0 +1,23 @@
+# --- Ignore generated data but keep the directory structure ---
+
+## Smokeping: Ignore everything in the folder except .gitkeep
+
+smokeping/*
+!smokeping/.gitkeep
+
+## Speedtest Tracker: Ignore everything in the folder except .gitkeep
+
+speedtest/*
+!speedtest/.gitkeep
+
+## Uptime Kuma: Ignore everything in the folder except .gitkeep
+
+uptime-kuma/*
+!uptime-kuma/.gitkeep
+
+## --- General Exclusions ---
+
+.DS_Store
+Thumbs.db
+*.log
+.env

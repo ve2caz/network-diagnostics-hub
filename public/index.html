@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Diagnostics Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Network Diagnostics Hub</h1>
+            <p>ISP Evidence Collection & Live Monitoring</p>
+        </header>
+
+        <div class="grid">
+            <div class="card" style="border-top-color: var(--accent-green);">
+                <h2>Speedtest Tracker</h2>
+                <div class="meta"><strong>Port:</strong> 9020</div>
+                <p><strong>Summary:</strong> Automated bandwidth logger using Ookla's CLI.<br>
+                   <strong>Purpose:</strong> Proving "congestion" (e.g., your 1Gbps line drops to 40Mbps at 8 PM).<br>
+                   <strong>Usage:</strong> Run 2x per hour to build a "calendar of failure" for support tickets.</p>
+                <div class="links">
+                    <a href="http://localhost:9020" class="btn">Open Dashboard</a>
+                    <a href="https://github.com/alexjustesen/speedtest-tracker" class="source-link">GitHub Source</a>
+                </div>
+            </div>
+
+            <div class="card" style="border-top-color: var(--accent-orange);">
+                <h2>SmokePing</h2>
+                <div class="meta"><strong>Port:</strong> 9030</div>
+                <p><strong>Summary:</strong> High-precision latency and jitter visualization.<br>
+                   <strong>Purpose:</strong> Identifying physical line issues (Packet Loss) vs. noise (Jitter).<br>
+                   <strong>Usage:</strong> Look for "smoke" (gray blur) around the lines to diagnose unstable streams.</p>
+                <div class="links">
+                    <a href="http://localhost:9030" class="btn">Open Dashboard</a>
+                    <a href="https://github.com/oetiker/SmokePing" class="source-link">GitHub Source</a>
+                </div>
+            </div>
+
+            <div class="card" style="border-top-color: var(--accent-blue);">
+                <h2>Uptime Kuma</h2>
+                <div class="meta"><strong>Port:</strong> 9040</div>
+                <p><strong>Summary:</strong> Live health monitor with sub-second resolution.<br>
+                   <strong>Purpose:</strong> Real-time confirmation when Zoom or MS Teams flags "Unstable Connection".<br>
+                   <strong>Usage:</strong> Keep open on a second monitor during calls to catch "micro-outages" instantly.</p>
+                <div class="links">
+                    <a href="http://localhost:9040" class="btn">Open Dashboard</a>
+                    <a href="https://github.com/louislam/uptime-kuma" class="source-link">GitHub Source</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin: 3rem 0 2rem; color: #94a3b8;">Free Online Network Tools</h2>
+        <div class="grid">
+            <div class="card" style="border-top-color: var(--accent-purple);">
+                <h2>RIPE NCC Atlas</h2>
+                <div class="meta"><strong>Free Online Tool</strong></div>
+                <div class="section"><p><strong>Summary:</strong> Professional network measurement platform.</p></div>
+                <div class="section"><p><strong>Purpose:</strong> Historical and global network diagnostics from distributed probes.</p></div>
+                <div class="section"><p><strong>Usage:</strong> Compare your local issues against global measurements for ISP accountability.</p></div>
+                <div class="links">
+                    <a href="https://atlas.ripe.net/" class="btn">Open Tool</a>
+                    <a href="https://www.ripe.net/" class="source-link">RIPE NCC</a>
+                </div>
+            </div>
+
+            <div class="card" style="border-top-color: var(--accent-red);">
+                <h2>WhatIsMyIPAddress</h2>
+                <div class="meta"><strong>Free Online Tool</strong></div>
+                <div class="section"><p><strong>Summary:</strong> Comprehensive IP and network analysis tools.</p></div>
+                <div class="section"><p><strong>Purpose:</strong> Traceroute, ping, DNS tools, and IP information lookup.</p></div>
+                <div class="section"><p><strong>Usage:</strong> Get detailed network path analysis and IP geolocation data.</p></div>
+                <div class="links">
+                    <a href="https://whatismyipaddress.com/" class="btn">Open Tool</a>
+                    <a href="https://whatismyipaddress.com/" class="source-link">whatismyipaddress.com</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin: 3rem 0 2rem; color: #94a3b8;">Security Tools</h2>
+        <div class="grid">
+            <div class="card" style="border-top-color: var(--accent-teal);">
+                <h2>BrowserLeaks</h2>
+                <div class="meta"><strong>Free Online Tool</strong></div>
+                <div class="section"><p><strong>Summary:</strong> Comprehensive browser security and privacy analysis.</p></div>
+                <div class="section"><p><strong>Purpose:</strong> Detect fingerprinting, leaks, and security vulnerabilities in your browser.</p></div>
+                <div class="section"><p><strong>Usage:</strong> Run tests to see how unique and exposed your browser setup is.</p></div>
+                <div class="links">
+                    <a href="https://browserleaks.com/" class="btn">Open Tool</a>
+                    <a href="https://browserleaks.com/" class="source-link">browserleaks.com</a>
+                </div>
+            </div>
+
+            <div class="card" style="border-top-color: var(--accent-yellow);">
+                <h2>GRC ShieldsUP!</h2>
+                <div class="meta"><strong>Free Online Tool</strong></div>
+                <div class="section"><p><strong>Summary:</strong> Security-focused network testing tools.</p></div>
+                <div class="section"><p><strong>Purpose:</strong> Port scanning, firewall testing, and basic network diagnostics.</p></div>
+                <div class="section"><p><strong>Usage:</strong> Test your network security and basic connectivity without ads or accounts.</p></div>
+                <div class="links">
+                    <a href="https://www.grc.com/shieldsup" class="btn">Open Tool</a>
+                    <a href="https://www.grc.com/" class="source-link">GRC.com</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

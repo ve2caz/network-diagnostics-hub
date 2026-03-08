@@ -1,0 +1,26 @@
+# --- Ignore generated data but keep the directory structure ---
+
+# API Keys: Ignore any file that might contain API keys or secrets
+*.env
+*.key
+*.secret
+.speedtest-app-key
+
+# Smokeping: Ignore everything in the folder except .gitkeep
+smokeping/*
+!smokeping/config/httpd.conf
+!smokeping/config/Targets
+
+# Speedtest Tracker: Ignore everything in the folder except .gitkeep
+speedtest/*
+!speedtest/.gitkeep
+
+# Uptime Kuma: Ignore everything in the folder except .gitkeep
+uptime-kuma/*
+!uptime-kuma/.gitkeep
+
+# --- General Exclusions ---
+.DS_Store
+Thumbs.db
+*.log
+.env
