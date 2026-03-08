@@ -49,6 +49,21 @@ This script handles UID/GID detection, timezone auto-detection, and launches all
 Open your browser and navigate to:
 **`http://localhost:9010`**
 
+### 3. Speedtest Tracker First Login (Expected)
+
+Speedtest Tracker is a self-hosted app with authentication enabled by default.
+On first launch, sign in with the default admin credentials documented by the
+project, then change the password immediately.
+
+During the first start of the application a default admin account is created for you:
+
+| Username            | Password.  |
+| ------------------- | ---------- |
+| `admin@example.com` | `password` |
+
+- App URL in this stack: `http://localhost:9020`
+- If needed, rotate credentials and review account settings in Speedtest Tracker after first login.
+
 ---
 
 ## 🔍 Critical Configuration: SmokePing Targets
