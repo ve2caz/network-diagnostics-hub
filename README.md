@@ -57,12 +57,46 @@ project, then change the password immediately.
 
 During the first start of the application a default admin account is created for you:
 
-| Username            | Password.  |
+| Username            | Password   |
 | ------------------- | ---------- |
 | `admin@example.com` | `password` |
 
 - App URL in this stack: `http://localhost:9020`
 - If needed, rotate credentials and review account settings in Speedtest Tracker after first login.
+
+### 4. Speedtest Tracker Scheduling (Bandwidth Trends Over Time)
+
+Speedtest Tracker's recurring tests are controlled with one environment variable:
+
+- `SPEEDTEST_SCHEDULE` (cron expression)
+
+This stack defaults to every 30 minutes:
+
+```text
+*/30 * * * *
+```
+
+Other useful schedule and dashboard variables in this project:
+
+| Variable | Purpose | Recommended value |
+| --- | --- | --- |
+| `SPEEDTEST_SERVERS` | Fixed Ookla server IDs used by scheduled tests | `68258` |
+| `SPEEDTEST_SCHEDULE` | How often tests run | `*/30 * * * *` |
+| `DEFAULT_CHART_RANGE` | Default chart timespan | `week` |
+| `DISPLAY_TIMEZONE` | Local timezone used by charts/timestamps | `America/Toronto` |
+| `PRUNE_RESULTS_OLDER_THAN` | Data retention in days | `365` |
+| `PUBLIC_DASHBOARD` | Guest dashboard access | `false` (set `true` for read-only guest view) |
+
+Optional for more stable comparisons over time:
+
+- `SPEEDTEST_SERVERS`: comma-separated IDs; use one server for cleaner long-term trend baselines.
+- `SPEEDTEST_BLOCKED_SERVERS`: exclude unstable servers that create noisy baselines.
+
+Current default in this project:
+
+```text
+SPEEDTEST_SERVERS=68258
+```
 
 ---
 
@@ -102,8 +136,8 @@ To make the data "court-admissible" for your ISP, you must monitor your **ISP Ga
 
 ## Maintenance & Logs
 
-* **View Logs:** `docker compose logs -f [service_name]`
-* **Stop Services:** `./stop.sh` (or `docker compose down`)
-* **Clean Data:** `./clean.sh` (resets all metrics while preserving configuration files)
+* **View Logs:** `./logs.sh`
+* **Stop Services:** `./stop.sh`
+* **Clean Data:** `./clean.sh` (resets generated data)
 
 ---

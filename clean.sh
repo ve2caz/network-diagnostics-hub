@@ -17,7 +17,7 @@ fi
 # 2. Speedtest: Preserve ONLY speedtest/.gitkeep
 if [[ -d "speedtest" ]]; then
   # Delete everything in speedtest EXCEPT the root .gitkeep
-  find speedtest -mindepth 1 ! -path "speedtest/.gitkeep" -delete
+  find speedtest -mindepth 1 ! -path "speedtest/.gitkeep" ! -path "speedtest/speedtest-servers.json" -delete
   echo "✅ Speedtest scrubbed (.gitkeep preserved)."
 fi
 
