@@ -1,18 +1,19 @@
 services:
-  # Main Landing Page Dashboard
+  # 1. Main Landing Page Dashboard
   dashboard:
+    container_name: diagnostic-hub-dashboard
     image: nginxinc/nginx-unprivileged:alpine # Specifically built for non-root users
-    container_name: diagnostic-hub
     ports:
       - 9010:8080 # Unprivileged Nginx listens on 8080 by default
     volumes:
       - ./public:/usr/share/nginx/html:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     restart: unless-stopped
 
-  # 1. Historical Bandwidth Stats
+  # 2. Historical Bandwidth Stats
   speedtest-tracker:
-    image: lscr.io/linuxserver/speedtest-tracker:latest
     container_name: speedtest-tracker
+    image: lscr.io/linuxserver/speedtest-tracker:latest
     ports:
       - 9020:80
     environment:
@@ -32,10 +33,10 @@ services:
       - ./speedtest/config:/config
     restart: unless-stopped
 
-  # 2. Long-term Latency & Jitter
+  # 3. Long-term Latency & Jitter
   smokeping:
-    image: lscr.io/linuxserver/smokeping:latest
     container_name: smokeping
+    image: lscr.io/linuxserver/smokeping:latest
     environment:
       PUID: ${UID}
       PGID: ${GID}
@@ -47,10 +48,10 @@ services:
       - 9030:80
     restart: unless-stopped
 
-  # 3. Live Health & Zoom Lag Alerts
+  # 4. Live Health & Zoom Lag Alerts
   uptime-kuma:
-    image: louislam/uptime-kuma:1
     container_name: uptime-kuma
+    image: louislam/uptime-kuma:1
     environment:
       PUID: ${UID}
       PGID: ${GID}
@@ -60,3 +61,8 @@ services:
     ports:
       - 9040:3001
     restart: unless-stopped
+
+networks:
+  default:
+    name: diagnostics-hub-network
+    driver: bridge

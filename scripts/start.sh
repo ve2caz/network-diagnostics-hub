@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# Navigate to project root
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$PROJECT_ROOT" || exit 1
+
 # 1. Discover current user context
 export UID=$(id -u)
 export GID=$(id -g)
@@ -23,7 +27,7 @@ docker compose up -d
 echo "------------------------------------------------"
 echo "Stack is coming online."
 echo "Dashboard: http://localhost:9010"
-echo "Use 'logs.sh' to monitor initialization."
+echo "Use './scripts/logs.sh' to monitor initialization."
 
 echo "------------------------------------------------"
 echo "✅ Verification: Run 'ls -l ./smokeping/config' to confirm your user owns the data."

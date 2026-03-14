@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# Navigate to project root
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$PROJECT_ROOT" || exit 1
+
 echo "🧹 Scrubbing all generated directories and files..."
 
 # 1. SmokePing: Keep config/httpd.conf, config/Targets, delete the data folder entirely

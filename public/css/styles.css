@@ -14,6 +14,13 @@
     --accent-cyan: #06b6d4;
     --accent-pink: #ec4899;
     --accent-yellow: #eab308;
+    --accent-lime: #84cc16;
+    --accent-indigo: #6366f1;
+    --accent-rose: #f43f5e;
+    --accent-teal: #14b8a6;
+    --accent-amber: #f59e0b;
+    --accent-violet: #7c3aed;
+    --accent-fuchsia: #d946ef;
 }
 
 * {
@@ -130,13 +137,21 @@ header h1 {
     width: 6px;
 }
 
-.card--green  { --card-color: var(--accent-green); }
-.card--orange { --card-color: var(--accent-orange); }
-.card--blue   { --card-color: var(--accent-blue); }
-.card--purple { --card-color: var(--accent-purple); }
-.card--red    { --card-color: var(--accent-red); }
-.card--cyan   { --card-color: var(--accent-cyan); }
-.card--yellow { --card-color: var(--accent-yellow); }
+.card--green    { --card-color: var(--accent-green); }
+.card--orange   { --card-color: var(--accent-orange); }
+.card--blue     { --card-color: var(--accent-blue); }
+.card--purple   { --card-color: var(--accent-purple); }
+.card--red      { --card-color: var(--accent-red); }
+.card--cyan     { --card-color: var(--accent-cyan); }
+.card--yellow   { --card-color: var(--accent-yellow); }
+.card--pink     { --card-color: var(--accent-pink); }
+.card--lime     { --card-color: var(--accent-lime); }
+.card--indigo   { --card-color: var(--accent-indigo); }
+.card--rose     { --card-color: var(--accent-rose); }
+.card--teal     { --card-color: var(--accent-teal); }
+.card--amber    { --card-color: var(--accent-amber); }
+.card--violet   { --card-color: var(--accent-violet); }
+.card--fuchsia  { --card-color: var(--accent-fuchsia); }
 
 /* Card Header */
 .card__header {

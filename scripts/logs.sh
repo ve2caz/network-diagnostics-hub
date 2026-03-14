@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# Navigate to project root
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$PROJECT_ROOT" || exit 1
+
 # 1. Discover current user context
 export UID=$(id -u)
 export GID=$(id -g)

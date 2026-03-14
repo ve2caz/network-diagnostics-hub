@@ -1,143 +1,78 @@
 # Network Diagnostics Hub (The "ISP Evidence Kit")
 
-A containerized monitoring stack designed to collect historical and real-time network data. This project provides a centralized dashboard to track bandwidth, jitter, packet loss, and path-hop diagnostics to hold ISPs accountable for service inconsistencies.
+<table>
+<tr>
+<td width="50%">
 
-## The Stack
+A containerized monitoring stack designed to collect historical and real-time network data.
 
-* **Diagnostic Hub (Nginx):** A central landing page linking all tools.
-* **Speedtest Tracker:** Scheduled bandwidth logging to identify peak-hour congestion.
-* **SmokePing:** High-precision latency and jitter visualization (The "Engineer's Proof").
-* **Uptime Kuma:** Real-time health monitoring for instant lag confirmation during calls/streams.
-* **MTR Web:** Live path-hop diagnostics to pinpoint exactly where data is being dropped (currently commented out in docker-compose.yaml).
+**The goal**: Real-time visibility into your router and network performance
 
-## Prerequisites
+**This is NOT about spying on networks.**
 
-* **Docker** and **Docker Compose** installed.
-* **OpenSSL** installed.
+This project helps you take control of your network by providing the tools to:
 
-## 📂 Project Structure
+- Document bandwidth degradation during peak hours
+- Prove packet loss and latency issues with historical data
+- Present evidence to ISP support with technical credibility
+- Monitor network health in real-time
 
-```text
-.
-├── docker-compose.yaml
-├── index.html           # The landing page dashboard
-├── start.sh             # Launch script with auto-detection
-├── stop.sh              # Stop script
-├── clean.sh             # Clean data while preserving configs
-├── smokeping/           # Generated config/data for SmokePing
-├── speedtest/           # Data for Speedtest Tracker
-└── uptime-kuma/         # Database for Uptime Kuma
+**Security is built in from the start:**
+- All services run locally in Docker with minimal exposure
+- No system-level access allowed—containers run with your user's permissions (non-root)
+- No external dependencies required for core functionality
+- Single-page app with static files (no tracking, no analytics)
+- Local-only by default; you control any external access
 
-```
+</td>
+<td width="50%" valign="middle">
 
----
+<div align="center">
+  <img src="docs/images/01 - Network Diagnostics Hub.png" alt="Network Diagnostics Hub Dashboard" height="500px" />
+</div>
 
-## Setup Instructions
+</td>
+</tr>
+</table>
 
-### 1. Launch the Stack
+## What's Included
 
-Run the launch script to automatically detect your user context and timezone, then start the services:
+The stack provides 4 integrated tools that are locally hosted:
+
+| Tool | Purpose | Port |
+|------|---------|------|
+| **Dashboard** | Central hub linking all tools | [9010](http://localhost:9010) |
+| **Speedtest Tracker** | Historical bandwidth trends | [9020](http://localhost:9020) |
+| **SmokePing** | Latency, jitter, and packet loss visualization | [9030](http://localhost:9030) |
+| **Uptime Kuma** | Real-time health monitoring and alerts | [9040](http://localhost:9040) |
+
+## Getting Started
+
+👉 **[SETUP.md](docs/SETUP.md)** — How to launch the stack and access the dashboard
+
+## Documentation
+
+| Topic | Link |
+|-------|------|
+| **Tools Overview** | [TOOLS.md](docs/TOOLS.md) |
+| **Tool Configuration** | [docs/tools/](docs/tools/) |
+| **Using Data for ISP Support** | [HOW_TO_USE.md](docs/HOW_TO_USE.md) |
+| **Card System (Dashboard)** | [CARD_SYSTEM.md](docs/CARD_SYSTEM.md) |
+| **Maintenance & Logs** | [MAINTENANCE.md](docs/MAINTENANCE.md) |
+| **Frequently Asked Questions** | [FAQ.md](docs/FAQ.md) |
+
+## Quick Start
 
 ```bash
-./start.sh
+# Launch the stack
+./scripts/start.sh
+
+# Open the dashboard
+# http://localhost:9010
 ```
 
-This script handles UID/GID detection, timezone auto-detection, and launches all services in the background.
-
-### 2. Access the Hub
-
-Open your browser and navigate to:
-**`http://localhost:9010`**
-
-### 3. Speedtest Tracker First Login (Expected)
-
-Speedtest Tracker is a self-hosted app with authentication enabled by default.
-On first launch, sign in with the default admin credentials documented by the
-project, then change the password immediately.
-
-During the first start of the application a default admin account is created for you:
-
-| Username            | Password   |
-| ------------------- | ---------- |
-| `admin@example.com` | `password` |
-
-- App URL in this stack: `http://localhost:9020`
-- If needed, rotate credentials and review account settings in Speedtest Tracker after first login.
-
-### 4. Speedtest Tracker Scheduling (Bandwidth Trends Over Time)
-
-Speedtest Tracker's recurring tests are controlled with one environment variable:
-
-- `SPEEDTEST_SCHEDULE` (cron expression)
-
-This stack defaults to every 30 minutes:
-
-```text
-*/30 * * * *
-```
-
-Other useful schedule and dashboard variables in this project:
-
-| Variable | Purpose | Recommended value |
-| --- | --- | --- |
-| `SPEEDTEST_SERVERS` | Fixed Ookla server IDs used by scheduled tests | `68258` |
-| `SPEEDTEST_SCHEDULE` | How often tests run | `*/30 * * * *` |
-| `DEFAULT_CHART_RANGE` | Default chart timespan | `week` |
-| `DISPLAY_TIMEZONE` | Local timezone used by charts/timestamps | `America/Toronto` |
-| `PRUNE_RESULTS_OLDER_THAN` | Data retention in days | `365` |
-| `PUBLIC_DASHBOARD` | Guest dashboard access | `false` (set `true` for read-only guest view) |
-
-Optional for more stable comparisons over time:
-
-- `SPEEDTEST_SERVERS`: comma-separated IDs; use one server for cleaner long-term trend baselines.
-- `SPEEDTEST_BLOCKED_SERVERS`: exclude unstable servers that create noisy baselines.
-
-Current default in this project:
-
-```text
-SPEEDTEST_SERVERS=68258
-```
+On first launch, Speedtest Tracker will create a default admin account. See [SETUP.md](docs/SETUP.md#first-login) for details.
 
 ---
 
-## 🔍 Critical Configuration: SmokePing Targets
-
-To make the data "court-admissible" for your ISP, you must monitor your **ISP Gateway** (the first hop outside your home). The external DNS targets are organized by tiers for better benchmarking.
-
-1. **Find your Gateway:** Run a traceroute in your terminal:
-
-    ```zsh
-    # macOS/Linux
-    traceroute 8.8.8.8
-    # Windows
-    tracert 8.8.8.8
-    ```
-
-2. **Edit Targets:** Open `./smokeping/config/Targets` and replace the `host` for your ISP Gateway with the IP address found in **Hop 2** of your traceroute.
-
-3. **Restart SmokePing:**
-
-    ```zsh
-    docker compose restart smokeping
-    ```
-
----
-
-## How to Use the Data for ISP Support
-
-| Evidence Needed | Tool to Use | What to look for |
-| --- | --- | --- |
-| **Congestion** | Speedtest Tracker | Consistent speed drops during evening hours (7 PM – 11 PM). |
-| **Unstable Line** | SmokePing | Thicker "smoke" (jitter) or vertical red/colored bars (packet loss). |
-| **Live Stalls** | Uptime Kuma | Sudden red blocks in the ping graph that align with Zoom "Unstable" alerts. |
-| **Node Failure** | MTR Web (when enabled) | Packet loss starting at Hop 2 or 3 and persisting through the rest of the trace. |
-
----
-
-## Maintenance & Logs
-
-* **View Logs:** `./logs.sh`
-* **Stop Services:** `./stop.sh`
-* **Clean Data:** `./clean.sh` (resets generated data)
-
----
+**Need help?** Check [FAQ.md](docs/FAQ.md) or see the tool-specific docs in [docs/tools/](docs/tools/).
