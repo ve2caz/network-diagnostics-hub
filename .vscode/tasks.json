@@ -1,0 +1,103 @@
+{
+  "version": "2.0.0",
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": false,
+    "panel": "shared",
+    "showReuseMessage": true,
+    "clear": false
+  },
+  "tasks": [
+    {
+      "label": "🚀 Start Stack",
+      "type": "shell",
+      "command": "./scripts/start.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🔄 Restart Stack",
+      "type": "shell",
+      "command": "./scripts/restart.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "⏹️ Stop Stack",
+      "type": "shell",
+      "command": "./scripts/stop.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "📊 View Logs",
+      "type": "shell",
+      "command": "./scripts/logs.sh",
+      "isBackground": true,
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🧹 Clean Stack",
+      "type": "shell",
+      "command": "./scripts/clean.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🏥 Health Check",
+      "type": "shell",
+      "command": "sh",
+      "args": [
+        "-c",
+        "echo '🔍 Checking service health...' && echo '' && docker compose ps && echo '' && echo 'Dashboard: http://localhost:9010' && echo 'Speedtest Tracker: http://localhost:9020' && echo 'SmokePing: http://localhost:9030' && echo 'Uptime Kuma: http://localhost:9040'"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

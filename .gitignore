@@ -21,6 +21,7 @@ uptime-kuma/*
 
 # --- General Exclusions ---
 .DS_Store
-Thumbs.db
-*.log
 .env
+*.log
+scratch/
+Thumbs.db

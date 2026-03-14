@@ -1,0 +1,200 @@
+header:
+  title: Network Diagnostics Hub
+  subtitle: ISP Evidence Collection & Live Monitoring
+
+sections:
+  - id: local-services
+    title: Local Dashboard Services
+    cards:
+
+      - id: speedtest-tracker
+        title: Speedtest Tracker
+        badge: Port 9020
+        content:
+          - label: "📊 What it does:"
+            text: "Automated bandwidth logger using Ookla's CLI."
+          - label: "🎯 Why you need it:"
+            text: "Proving \"congestion\" (e.g., your 1Gbps line drops to 40Mbps at 8 PM)."
+          - label: "💡 How to use it:"
+            text: "Run 2x per hour to build a \"calendar of failure\" for support tickets."
+        buttons:
+          - label: Open Dashboard
+            url: http://localhost:9020
+            type: primary
+          - label: GitHub →
+            url: https://github.com/alexjustesen/speedtest-tracker
+            type: secondary
+
+      - id: smokeping
+        title: SmokePing
+        badge: Port 9030
+        content:
+          - label: "📊 What it does:"
+            text: "High-precision latency and jitter visualization."
+          - label: "🎯 Why you need it:"
+            text: "Identifying physical line issues (Packet Loss) vs. noise (Jitter)."
+          - label: "💡 How to use it:"
+            text: "Look for \"smoke\" (gray blur) around the lines to diagnose unstable streams."
+        buttons:
+          - label: Open Dashboard
+            url: http://localhost:9030
+            type: primary
+          - label: GitHub →
+            url: https://github.com/oetiker/SmokePing
+            type: secondary
+
+      - id: uptime-kuma
+        title: Uptime Kuma
+        badge: Port 9040
+        content:
+          - label: "📊 What it does:"
+            text: "Live health monitor with sub-second resolution."
+          - label: "🎯 Why you need it:"
+            text: "Real-time confirmation when Zoom or MS Teams flags \"Unstable Connection\"."
+          - label: "💡 How to use it:"
+            text: "Keep open on a second monitor during calls to catch \"micro-outages\" instantly."
+        buttons:
+          - label: Open Dashboard
+            url: http://localhost:9040
+            type: primary
+          - label: GitHub →
+            url: https://github.com/louislam/uptime-kuma
+            type: secondary
+
+  - id: online-tools
+    title: Free Online Network Tools
+    cards:
+
+      - id: cloudflare-speed-test
+        title: Cloudflare Speed Test
+        badge: Online Tool
+        content:
+          - label: "📊 What it does:"
+            text: "Browser-based speed test with global Cloudflare nodes."
+          - label: "🎯 Why you need it:"
+            text: "Quick, no-installation test to confirm local bandwidth issues."
+          - label: "💡 How to use it:"
+            text: "Run during peak hours to compare against your local Speedtest Tracker data."
+        buttons:
+          - label: Open Tool
+            url: https://speed.cloudflare.com/
+            type: primary
+          - label: About →
+            url: https://speed.cloudflare.com/about/
+            type: secondary
+
+      - id: waveform-bufferbloat-test
+        title: Waveform Bufferbloat Test
+        badge: Online Tool
+        content:
+          - label: "📊 What it does:"
+            text: "Specialized test for detecting bufferbloat and latency spikes."
+          - label: "🎯 Why you need it:"
+            text: "Identify if your ISP's equipment is causing excessive buffering during congestion."
+          - label: "💡 How to use it:"
+            text: "Run during times of poor performance to see if latency spikes correlate with bandwidth usage."
+        buttons:
+          - label: Open Tool
+            url: https://www.waveform.com/tools/bufferbloat
+            type: primary
+          - label: Bufferbloat →
+            url: https://www.bufferbloat.net/projects/bloat/wiki/
+            type: secondary
+
+      - id: ripe-ncc-atlas
+        title: RIPE NCC Atlas
+        badge: Online Tool
+        content:
+          - label: "📊 What it does:"
+            text: "Professional network measurement platform."
+          - label: "🎯 Why you need it:"
+            text: "Historical and global network diagnostics from distributed probes."
+          - label: "💡 How to use it:"
+            text: "Compare your local issues against global measurements for ISP accountability."
+        buttons:
+          - label: Open Tool
+            url: https://atlas.ripe.net/maps/
+            type: primary
+          - label: RIPE NCC Atlas →
+            url: https://atlas.ripe.net/
+            type: secondary
+
+  - id: security-tools
+    title: Security Tools
+    cards:
+
+      - id: what-is-my-ip
+        title: WhatIsMyIPAddress
+        badge: Online Tool
+        content:
+          - label: "📊 What it does:"
+            text: "Comprehensive IP and network analysis tools."
+          - label: "🎯 Why you need it:"
+            text: "Traceroute, ping, DNS tools, and IP information lookup."
+          - label: "💡 How to use it:"
+            text: "Get detailed network path analysis and IP geolocation data."
+        buttons:
+          - label: Open Tool
+            url: https://whatismyipaddress.com/
+            type: primary
+          - label: About →
+            url: https://whatismyipaddress.com/about
+            type: secondary
+
+      - id: browserleaks
+        title: BrowserLeaks
+        badge: Online Tool
+        content:
+          - label: "📊 What it does:"
+            text: "Comprehensive browser security and privacy analysis."
+          - label: "🎯 Why you need it:"
+            text: "Detect fingerprinting, leaks, and security vulnerabilities in your browser."
+          - label: "💡 How to use it:"
+            text: "Run tests to see how unique and exposed your browser setup is."
+        buttons:
+          - label: Open Tool
+            url: https://browserleaks.com/
+            type: primary
+          - label: BrowserLeaks →
+            url: https://browserleaks.com/
+            type: secondary
+
+  - id: privacy-tools
+    title: Privacy Tools
+    cards:
+
+      - id: eff-surveillance-defense
+        title: EFF Surveillance Self-Defense
+        badge: Resource Hub
+        content:
+          - label: "📊 What it does:"
+            text: "Educational guides from Electronic Frontier Foundation on surveillance tactics."
+          - label: "🎯 Why you need it:"
+            text: "Learn threats: phishing, tracking, ISP logging, government surveillance."
+          - label: "💡 How to use it:"
+            text: "Start with the threat model quiz to find targeted protection strategies."
+        buttons:
+          - label: Open Tools
+            url: https://ssd.eff.org/module-categories/tool-guides
+            type: primary
+          - label: EFF SSD Basics →
+            url: https://ssd.eff.org/module-categories/basics
+            type: secondary
+
+      - id: privacy-guides
+        title: Privacy Guides
+        badge: Resource Hub
+        content:
+          - label: "📊 What it does:"
+            text: "Comprehensive, independent guide to choosing privacy tools."
+          - label: "🎯 Why you need it:"
+            text: "Cut through marketing claims—evidence-based recommendations for real privacy."
+          - label: "💡 How to use it:"
+            text: "Find privacy-respecting alternatives for browsers, messengers, email, & more."
+        buttons:
+          - label: Open Tools
+            url: https://www.privacyguides.org/en/tools/
+            type: primary
+          - label: Knowledge Base →
+            url: https://www.privacyguides.org/en/basics/why-privacy-matters/
+            type: secondary

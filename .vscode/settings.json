@@ -1,0 +1,36 @@
+{
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/node_modules": true,
+    ".git": false
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    ".git": true,
+    "speedtest/config": true,
+    "smokeping/config": true,
+    "smokeping/data": true,
+    "uptime-kuma": true
+  },
+  "files.associations": {
+    "*.sh": "shellscript",
+    "*.yaml": "yaml",
+    "Dockerfile": "dockerfile",
+    ".gitignore": "ignore"
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.trimAutoWhitespace": true
+  },
+  "[shellscript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.trimAutoWhitespace": true
+  },
+}

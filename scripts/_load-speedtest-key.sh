@@ -3,6 +3,10 @@
 # Helper script to manage Speedtest Tracker APP_KEY
 # Generates on first run, reuses on subsequent runs, cleaned by clean.sh
 
+# Navigate to project root (scripts are in PROJECT_ROOT/scripts/)
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$PROJECT_ROOT" || exit 1
+
 KEY_FILE=".speedtest-app-key"
 
 if [[ ! -f "$KEY_FILE" ]]; then
