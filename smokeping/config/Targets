@@ -10,7 +10,7 @@ title = Home Network
 ++ Gateway
 menu = Router
 title = Local Router (Hop 1)
-host = 192.168.1.1
+host = 10.0.0.1
 
 + ISP
 menu = ISP
